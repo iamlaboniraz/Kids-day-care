@@ -1,0 +1,16 @@
+.headerMain{
+    font-family: 'Dela Gothic One', cursive;
+    /* background-color: orange; */
+}
+.title{
+    background-color: rgb(0, 78, 17);
+    color: yellow;
+}
+.description{
+    color: rgb(43, 13, 13);
+}
+.description:hover{
+    background-color: aliceblue;
+    padding: 0%;
+    box-shadow: 10px 10px 40px rgb(40, 27, 223);
+}

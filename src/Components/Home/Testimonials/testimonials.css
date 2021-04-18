@@ -1,0 +1,91 @@
+/* .container-style{
+    background: linear-gradient(-100deg,white 50%,deeppink);
+} */
+.textStyle{
+    font-family: 'Dela Gothic One', cursive;
+}
+/* .slider-area{
+    background: #685e5e;
+    padding: 100px 0;
+    position: relative;
+    margin: 120px 0;
+}
+.carousel-caption h5{
+    color: yellow;
+}
+
+.carousel-caption h3{
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.carousel-caption p{
+    font-size: 18px;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 10px;
+    color: white;
+}
+.img-area img{
+    width: 100%;
+    height: 100%;
+}
+.img-area{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 200px;
+} */
+/* .carousel-caption{
+    position: static;
+    padding-bottom: 15px;
+    padding-top: 0;
+} */
+
+/* .carousel-control.left,
+.carousel-control.right{
+    background: transparent;
+} */
+
+/* .img-area{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+} */
+/* 
+.img-area img{
+    width: 100%;
+}
+
+.carousel-caption{
+    position: static;
+    padding-bottom: 15px;
+    padding-top: 0;
+}
+
+.carousel-caption h3{
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.carousel-caption h4{
+    color: yellow;
+}
+
+.carousel-caption p{
+    font-size: 18px;
+    margin: auto;
+    width: 70%;
+    margin-bottom: 10px;
+}
+.carousel-indicators{
+    bottom: -35px;
+} */
