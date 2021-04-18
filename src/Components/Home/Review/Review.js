@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import Footer from '../Footer/Footer';
-import NavBar from '../NavBar/NavBar';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
-import Sidebar from '../Sidebar/Sidebar';
+import ProfileNavbar from '../ProfileNavbar/ProfileNavbar';
 
 const Review = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,7 +20,7 @@ const Review = () => {
             description: data.description,
             imageURL: imageURL
         };
-        const url = `http://localhost:5055/addReview`;
+        const url = `https://young-sea-12892.herokuapp.com/addReview`;
 
         fetch(url, {
             method: 'POST',
@@ -36,9 +34,7 @@ const Review = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 if (result) {
-                    console.log(ServiceData)
                     alert("Your opinion created successfully")
                 }
             })
@@ -51,7 +47,6 @@ const Review = () => {
         imageData.append('image', event.target.files[0]);
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(function (response) {
-                console.log("response data = ",response)
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
@@ -61,13 +56,13 @@ const Review = () => {
     }
     return (
         <div>
-            <Sidebar></Sidebar>
+            <ProfileNavbar></ProfileNavbar>
             <div className="container">
                 <div className="jumbotron">
                     <div style={{ margin: "10px" }} className="card">
                         <div className="card-body">
                             <h2 style={{ color: "rgb(87, 11, 17)" }} className="card-title">Share Your Opinion with us!</h2>
-                            <hr/>
+                            <hr />
                             <form className="product-form" onSubmit={handleSubmit(onSubmit)}>
 
                                 <div className="form-group">
@@ -85,8 +80,6 @@ const Review = () => {
                                 </div>
                                 <div className="form-group">
                                     <label>Your Company Name</label>
-                                    {/* <input name="price"  ref={register} className="form-control" placeholder="Enter Price" /> */}
-                                    {/* <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" /> */}
                                     <input class="form-control"
                                         id="yourCompanyName"
                                         aria-invalid={errors.yourCompanyName ? "true" : "false"}
@@ -98,12 +91,10 @@ const Review = () => {
                                         </span>
                                     )}
                                 </div>
-                                
+
                                 <div className="form-group">
-                                    <label>Description</label>
-                                    {/* <input name="description" ref={register}  className="form-control" placeholder="Enter Description" /> */}
-                                    {/* <textarea class="form-control" rows="5" id="comment"></textarea> */}
-                                    <textarea class="form-control" rows="5" 
+                                    <label>Message</label>
+                                    <textarea class="form-control" rows="5"
                                         id="description"
                                         aria-invalid={errors.description ? "true" : "false"}
                                         {...register('description', { required: true })}
@@ -114,13 +105,13 @@ const Review = () => {
                                         </span>
                                     )}
                                 </div>
-                                
+
                                 <div className="form-group">
 
                                     <label>Profile Picture</label>
                                     <br />
-                                    <input name="image"  type="file" onChange={handleImageUpload} />
-                                   
+                                    <input name="image" type="file" onChange={handleImageUpload} />
+
                                 </div>
                                 <input type="submit" className="btn btn-block btn-lg btn-danger" />
 
@@ -130,10 +121,9 @@ const Review = () => {
                 </div>
             </div>
 
-            {/* <Footer></Footer> */}
 
         </div>
-  
+
     );
 };
 

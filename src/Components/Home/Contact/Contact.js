@@ -2,7 +2,7 @@ import { faLocationArrow, faMailBulk, faPhone } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './Contact.css';
-import bg1 from "../../../images/bg7.jfif";
+import bg1 from "../../../images/bg8.jfif";
 const Contact = () => {
     return (
         <div
@@ -13,30 +13,26 @@ const Contact = () => {
                 backgroundSize: "cover"
             }}
         >
-            <div className="container">
-                <div class="mt-5 container contact">
+                <div class=" container contact">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="contact-info">
 
-                                <img style={{ width: '70px', height: "70px" }} src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
-                                <h2>Contact Us</h2>
-                                <h4 style={{ color: "blue" }}>Please Contact with us for any query</h4>
-
+                                <img style={{ width: '100px', height: "90px" }} src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                                <h2 className="contactTitle">Contact Us</h2>
+                                <hr/>
+                                <h4>Contact with us for any query</h4>
 
                                 <div>
-                                    {/* <h4>Contact Us</h4> */}
                                     <p>
+                                        <hr/>
                                         <FontAwesomeIcon icon={faLocationArrow}></FontAwesomeIcon>
-                                        <strong>Office:</strong>Dhaka,Bangladesh<br />
+                                        <strong>Office:</strong> Dhaka,Bangladesh<br />
                                         <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon> <strong>Phone:</strong> +1 5589 55488 55 <br />
                                         <FontAwesomeIcon icon={faMailBulk}></FontAwesomeIcon> <strong>Email:</strong> info@example.com <br />
                                     </p>
 
                                 </div>
-
-
-
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -75,7 +71,6 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </div>
 
 
     );

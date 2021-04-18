@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useContext } from 'react';
-import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { UserContext } from '../../../App';
 import Navbar from '../Navbar/Navbar';
 
 const MakeAdmin = () => {
@@ -11,17 +9,16 @@ const MakeAdmin = () => {
 
     const onSubmit = data => {
         const AdminData = {
-            // user: user.email,
             UserName: data.UserName,
             email: data.email,
         };
-        const url = `http://localhost:5055/addAdmin`;
+        const url = `https://young-sea-12892.herokuapp.com/addAdmin`;
 
         fetch(url, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                // authorization: `Bearer ${sessionStorage.getItem('token')}`
+
             },
             body: JSON.stringify(AdminData)
 
@@ -29,9 +26,7 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 if (result) {
-                    console.log(AdminData)
                     alert("Admin add successfully")
                 }
             })

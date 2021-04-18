@@ -6,10 +6,8 @@ import { Input,FormGroup,Form,Label } from 'reactstrap';
 import "./Login.css";
 import { GoogleLoginButton } from "react-social-login-buttons";
 import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
 import { useSpring, animated as a } from 'react-spring'
-import { render } from 'react-dom';
-// import img from "../../../images"
+
 function Login() {
   const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
@@ -25,7 +23,6 @@ function Login() {
   initializeLoginFramework();
 
   const [ loggedInUser, setLoggedInUser ] = useContext(UserContext);
-  console.log("loggedin = ",loggedInUser)
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
@@ -62,7 +59,7 @@ const SingOut = () =>{
       setUser(singOutUser)
     })
     .catch(err =>{
-
+      
     })
   }
 
@@ -95,7 +92,6 @@ const SingOut = () =>{
   }
 
   const handleSubmit = (e) =>{
-    console.log(user.email, user.password)
     if(newUser && user.email && user.password){
       createUserWithEmailAndPassword(user.name, user.email, user.password)
       .then(res =>{
@@ -125,6 +121,9 @@ const SingOut = () =>{
   return (
     <>
     <NavBar></NavBar>
+
+
+    <div className="mt-5 ml-5">
     <div onClick={() => set(state => !state)}>
       <a.div class="c back" style={{ opacity: opacity.interpolate(o => 1 - o), transform }} />
       <a.div class="c front" style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} />
@@ -132,8 +131,6 @@ const SingOut = () =>{
     
     
     <div className="login-form">
-      
-      
       <Form action="" onSubmit={handleSubmit}>
         {newUser &&  
         <FormGroup>
@@ -178,7 +175,8 @@ const SingOut = () =>{
         }
       </div>
     </div>
-    <Footer></Footer>
+
+    </div>
     </>
   );
 }

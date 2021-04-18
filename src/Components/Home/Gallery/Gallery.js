@@ -1,22 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-
-import newBaby from '../../../images/new-born.jpeg';
-import Children from '../../../images/children.jfif';
-
-import { Button } from 'reactstrap';
-
 import image1 from "../../../images/image1.jfif";
 import image2 from "../../../images/image2.jfif";
 import image5 from "../../../images/image5.jfif";
@@ -27,10 +11,8 @@ import fun4 from "../../../images/fun4.jpg";
 import fun12 from "../../../images/fun12.jfif";
 import study from "../../../images/study.jpg";
 import "./Gallery.css";
-import ReactCardFlip from 'react-card-flip';
 import { useState } from 'react';
 import bg1 from "../../../images/fun3.jpg";
-import { render } from 'react-dom'
 
 import { useSpring, animated as a } from 'react-spring'
 
@@ -39,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
         marginTop: "30px",
-        // marginLeft: "5px",
         marginRight: "10px",
         boxShadow: "10px 10px 40px rgb(32, 20, 3)",
     },
@@ -55,13 +36,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Gallery = () => {
     const [flipped, set] = useState(false)
-    const { transform, opacity } = useSpring({
-        opacity: flipped ? 1 : 0,
-        transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 80 }
-    })
+    
 
-    const classNamees = useStyles();
+    const classNames = useStyles();
     const [isFlipped, setIsFlipped] = useState(false)
 
     const handleChange = () => {
@@ -69,10 +46,6 @@ const Gallery = () => {
     }
 
     return (
-
-
-
-
         <div
             className="p-5 text-center bg-image"
             style={{
@@ -81,12 +54,9 @@ const Gallery = () => {
                 backgroundSize: "cover"
             }}
         >
-            
 
-            
             <div className="mask" >
                 <div className="d-flex justify-content-center align-items-center h-100">
-                    {/* <div className="text-black"></div> */}
                     <div className="container">
                         <div id="demo" class="carousel slide" data-ride="carousel">
                             <ul class="carousel-indicators">
@@ -110,24 +80,8 @@ const Gallery = () => {
                                                             className="card-img-top photo"
                                                             alt="..."
                                                         />
-                                                        {/* <div onClick={() => set(state => !state)}>
-                <a.div class="c back" style={{ opacity: opacity.interpolate(o => 1 - o), transform }} />
-                <a.div class="c front" style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} />
-            </div> */}
 
                                                     </div>
-
-
-                                                    {/* <div className="card-body">
-                                                    <h5 className="card-title">Card title</h5>
-                                                    <p className="card-text">
-                                                        Some quick example text to build on the card title and make up the bulk
-                                                        of the card's content.
-                                                </p>
-                                                    <a href="#!" className="btn btn-primary">Button</a>
-                                                                                      
-
-                                            </div> */}
                                                 </div>
 
                                                 <div className="col-lg-4 d-none d-lg-block">
@@ -137,14 +91,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-                                                </p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
 
@@ -155,14 +101,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,14 +118,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
 
@@ -198,14 +128,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
 
@@ -216,21 +138,13 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/*  */}
+
 
                                     <div className="carousel-item">
                                         <div className="container">
@@ -242,14 +156,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
 
@@ -260,14 +166,6 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
                                                     </div>
                                                 </div>
 
@@ -278,14 +176,7 @@ const Gallery = () => {
                                                             className="card-img-top"
                                                             alt="..."
                                                         />
-                                                        {/* <div className="card-body">
-                                                <h5 className="card-title">Card title</h5>
-                                                <p className="card-text">
-                                                    Some quick example text to build on the card title and make up the bulk
-                                                    of the card's content.
-</p>
-                                                <a href="#!" className="btn btn-primary">Button</a>
-                                            </div> */}
+
                                                     </div>
                                                 </div>
                                             </div>

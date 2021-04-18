@@ -6,22 +6,18 @@ import { useParams } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
+import Navbar from '../Navbar/Navbar';
 const DaneBookingStatus = (props) => {
     const [BookingList, setBookingList] = useState([])
     const [data, setData] = useState({
-        // phoneNumber: "",
         status: "",
     })
     let id = useParams();
-    const url = `http://localhost:5055/done/` + id.id;
-    console.log(url)
-    // const url = `http://localhost:5055/booking/`;
+    const url = `https://young-sea-12892.herokuapp.com/done/` + id.id;
+
     useEffect(() =>{
-        // const id = props.match.params.id;
-        console.log("id ==== " ,url)
         Axios.get(url)
         .then(res=>{
-            console.log(res.data)
             setData(res.data)
         }).catch(err => console.log(err))
     },[])
@@ -31,7 +27,6 @@ const DaneBookingStatus = (props) => {
         e.preventDefault()
         Axios.post(url,data)
         .then(res =>{
-            console.log(res.data)
             const myData = [...BookingList, res.data]
             setBookingList(myData)
         }).catch((err => console.error(err)))
@@ -45,6 +40,8 @@ const DaneBookingStatus = (props) => {
 
 
     return (
+        <>
+        <Navbar></Navbar>
         <div className="row">
             <div className="col-75">
                 <div className="container">
@@ -53,7 +50,6 @@ const DaneBookingStatus = (props) => {
                             <h2 style={{ color: "rgb(87, 11, 17)" }} className="card-title">Booking Form</h2>
                             <hr />
                             <div class="card" style={{width: "18rem;"}}>
-                                    {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
                                         <div class="card-body">
                                             <h5 class="card-title">Now Booking status is <strong>Done!</strong></h5>
                                             <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -64,29 +60,13 @@ const DaneBookingStatus = (props) => {
                                          
                                         </div>
                                 </div>
-                            {/* Book form */}
-                            {/* <form className="product-form" onSubmit={(e) => submit(e)}>
-                                <div className="form-group">
-                                    <label htmlFor="phoneNumber">Phone Number</label>
-                                    <input onChange={(e) => handle(e)} value={data.phoneNumber} type="text" name="phoneNumber"/>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="status">Name</label>
-                                    <input onChange={(e) => handle(e)} value={data.status} type="text" name="phoneNumber"/>
-                                </div>
-
-
-
-                                <input type="submit" value="submit" className="btn btn-block btn-lg btn-danger" />
-                            </form> */}
+                          
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
+        </>
 
 
     );

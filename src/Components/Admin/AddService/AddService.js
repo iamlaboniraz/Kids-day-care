@@ -11,32 +11,27 @@ const AddService = () => {
     const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = data => {
-        // const user = { ...loggedInUser }
         const ServiceData = {
-            // user: user.email,
             name: data.ServiceName,
             price: data.price,
             day: data.day,
             description: data.description,
             imageURL: imageURL
         };
-        const url = `http://localhost:5055/addService`;
+        const url = `https://young-sea-12892.herokuapp.com/addService`;
 
         fetch(url, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                // authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
-            body: JSON.stringify({ServiceData,email:loggedInUser.email})
+            body: JSON.stringify({ ServiceData, email: loggedInUser.email })
 
 
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 if (result) {
-                    console.log(ServiceData)
                     alert("Product add successfully")
                 }
             })
@@ -49,17 +44,15 @@ const AddService = () => {
         imageData.append('image', event.target.files[0]);
         axios.post('https://api.imgbb.com/1/upload', imageData)
             .then(function (response) {
-                console.log("response data = ",response)
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
-                console.log(error);
             });
 
     }
     return (
         <div>
-           <div className="container">
+            <div className="container">
                 <div className="jumbotron">
                     <div style={{ margin: "10px" }} className="card">
                         <div className="card-body">
@@ -68,7 +61,7 @@ const AddService = () => {
 
                                 <div className="form-group">
                                     <label>Service Name</label>
-                                    {/* <input name="name" ref={register}  className="form-control" placeholder="Enter Service Name" /> */}
+
                                     <input
                                         id="ServiceName"
                                         aria-invalid={errors.ServiceName ? "true" : "false"}
@@ -82,7 +75,7 @@ const AddService = () => {
                                 </div>
                                 <div className="form-group">
                                     <label>Add Price</label>
-                                    {/* <input name="price"  ref={register} className="form-control" placeholder="Enter Price" /> */}
+
                                     <input
                                         id="price"
                                         aria-invalid={errors.price ? "true" : "false"}
@@ -96,7 +89,7 @@ const AddService = () => {
                                 </div>
                                 <div className="form-group">
                                     <label>How Many Days</label>
-                                    {/* <input name="day" ref={register}  className="form-control" placeholder="Enter total day" /> */}
+
                                     <input
                                         id="day"
                                         aria-invalid={errors.day ? "true" : "false"}
@@ -110,7 +103,6 @@ const AddService = () => {
                                 </div>
                                 <div className="form-group">
                                     <label>Description</label>
-                                    {/* <input name="description" ref={register}  className="form-control" placeholder="Enter Description" /> */}
                                     <input
                                         id="description"
                                         aria-invalid={errors.description ? "true" : "false"}
@@ -125,8 +117,7 @@ const AddService = () => {
                                 <div className="form-group">
                                     <label>Add Service Picture</label>
                                     <br />
-                                    <input name="image"  type="file" onChange={handleImageUpload} />
-                                   
+                                    <input name="image" type="file" onChange={handleImageUpload} />
                                 </div>
                                 <input type="submit" className="btn btn-block btn-lg btn-danger" />
 

@@ -12,7 +12,6 @@ export const handleGoogleSignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(provider)
         .then(res => {
-            // const user = res.user;
             const { displayName, photoURL, email } = res.user;
             const signInUser = {
                 isSingedIn: true,
@@ -56,7 +55,6 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
             const newUserInfo = res.user;
             newUserInfo.error = '';
             newUserInfo.success = true;
-            //   setUser(newUserInfo);
             updateUserName(name)
             return newUserInfo;
         })
@@ -65,11 +63,6 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
             newUserInfo.error = error.message;
             newUserInfo.success = false;
             return newUserInfo;
-            //  setUser(newUserInfo);
-            // var errorCode = error.code;
-            // var errorMessage = error.message;
-            // console.log(errorCode,errorMessage)
-            // // ..
         });
 }
 
@@ -80,10 +73,6 @@ export const signInWithEmailAndPassword = (email, password) => {
             newUserInfo.error = '';
             newUserInfo.success = true;
             return newUserInfo;
-            //    setUser(newUserInfo);
-            //    setLoggedInUser(newUserInfo);
-            //    history.replace(from);
-            //    console.log("sign in user info",res.user);
         })
         .catch(error => {
             const newUserInfo = {};

@@ -55,7 +55,7 @@ function App() {
           <PrivateRoute path="/bookingList">
             <BookingList></BookingList>
           </PrivateRoute>
-          {/* admin page */}
+
           <Route path="/BookingInfo">
             <BookingInfo></BookingInfo>
           </Route>
@@ -64,17 +64,17 @@ function App() {
             <ManageServices></ManageServices>
           </PrivateRoute>
 
-          <Route path="/makeAdmin">
+          <PrivateRoute path="/makeAdmin">
             <MakeAdmin></MakeAdmin>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/ongoing/:id">
+          <PrivateRoute path="/ongoing/:id">
             <OnGoingBookingStatus></OnGoingBookingStatus>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/done/:id">
+          <PrivateRoute path="/done/:id">
             <DoneBookingStatus></DoneBookingStatus>
-          </Route>
+          </PrivateRoute>
          
           <Route exact path="/">
             <Home></Home>

@@ -1,4 +1,9 @@
 .services{
     font-family: 'Dela Gothic One', cursive;
-    /* color: rgb(201, 131, 1) */
+}
+h2{
+    color: rgb(201, 131, 1);
+}
+h5{
+    color: #1CC7C1;
 }
